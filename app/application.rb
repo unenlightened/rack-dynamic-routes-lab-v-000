@@ -5,7 +5,7 @@ class Application
     req = Rack::Response.new(env)
 
     if req.path.match(/items/)
-      item_search = req.path.split("/songs/").last
+      item_search = req.path.split("/items/").last
       item = @@items.find{|i| i.name == item_search}
 
       if !item.nil?
