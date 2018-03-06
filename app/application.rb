@@ -1,12 +1,12 @@
-class application
+class Application
 
   def call(env)
     resp = Rack::Response.new
     req = Rack::Response.new(env)
 
     if req.path.match"/items/"
-      item = req.path.split("/songs/").last
-
+      item_search = req.path.split("/songs/").last
+      item = @@items
     else
       resp.write "Route not found"
       resp.statu = 404
