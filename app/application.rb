@@ -6,7 +6,7 @@ class Application
 
     if req.path.match"/items/"
       item_search = req.path.split("/songs/").last
-      item = @@items
+      item = @@items.select{|i| i.name == item_search}
     else
       resp.write "Route not found"
       resp.statu = 404
