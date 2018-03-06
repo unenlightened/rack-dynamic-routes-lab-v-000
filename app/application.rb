@@ -6,7 +6,7 @@ class Application
 
     if req.path.match"/items/"
       item_search = req.path.split("/songs/").last
-      item = @@items.find{|i| i.name == item_search}
+      item = Item::@@items.find{|i| i.name == item_search}
 
       if !item.nil?
         resp.write "#{item.price}"
